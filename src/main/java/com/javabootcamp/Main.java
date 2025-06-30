@@ -24,13 +24,24 @@ public class Main {
             if(choice > options.length || choice < 0){
                 System.out.println("Invalid choice, please try again.");
             } else {
-                 vendingMachine.makeSelection(options[choice - 1]);   
+                if(options.length > 0) {
+                    vendingMachine.makeSelection(options[choice - 1]);   
+                }
             }
 
 
             
         }while (choice != 0);
 
+        System.out.println("Please enter the amount of $ you are placing in the machine: ");
+        double cashIn = sc.nextDouble();
+        int change = (int)((cashIn * 100) - (vendingMachine.getFinalPrice() * 100));
+
+        
+
+        System.out.println("You paid $" + cashIn + " and your change is $" + change/100);
+
+        sc.close();
 
     } 
 

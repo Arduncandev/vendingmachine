@@ -8,6 +8,7 @@ import java.util.Map;
 public class Machine {
     Map<String, Item> inventory = new HashMap<>();
     List<Item> currentSelections = new ArrayList<>();
+    double finalPrice = 0;
 
 
     public void addItem(String name, double price) {
@@ -58,6 +59,7 @@ public class Machine {
         }
         System.out.println("Total Price: $" + getTotalPrice());
         System.out.println("Total w/ Tax: $" + applySalesTax(getTotalPrice()));
+        finalPrice = applySalesTax(getTotalPrice());
     }
 
     public void makeSelection(String name){
@@ -89,5 +91,9 @@ public class Machine {
     public double applySalesTax(double total) {
         double taxRate = .11;
         return total + (total*taxRate);
+    }
+
+    public double getFinalPrice() {
+        return finalPrice;
     }
 }
