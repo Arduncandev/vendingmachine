@@ -38,6 +38,15 @@ public class Machine {
         }
     }
 
+    public void listSelections() {
+        System.out.println("Current Selections:");
+        for(int i = 0; i < currentSelections.size(); i++) {
+            Item selection = currentSelections.get(i);
+            System.out.println((i+1) + ". " + selection.getName() + " Price: $" + selection.getPrice());
+        }
+        System.out.println("Total Price: $" + getTotalPrice());
+    }
+
     public void makeSelection(String name){
         inventory.get(name).decAmount();
         currentSelections.add(inventory.get(name));
@@ -53,5 +62,13 @@ public class Machine {
             
         }
         return options;
+    }
+
+    public double getTotalPrice() {
+        double total = 0;
+        for(Item select : currentSelections) {
+            total += select.getPrice();
+        }
+        return total;
     }
 }
