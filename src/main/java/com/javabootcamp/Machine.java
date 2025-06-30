@@ -35,10 +35,11 @@ public class Machine {
 
     public void printStock(){
         int count = 1;
+        if(inventory.isEmpty()){
+            System.out.println("Vending Machine Completely Out of Stock");
+            return;
+        }
         for (Map.Entry<String, Item> entry : inventory.entrySet()) {
-            // if(entry.getValue().getAmount() == 0) {
-            //     removeItem(entry.getValue().getName());
-            // }
             System.out.println(count + ". " + entry.getKey() + " Price: $" + entry.getValue().getPrice() + " Stock: " + entry.getValue().getAmount());
             count++;
             
@@ -46,6 +47,10 @@ public class Machine {
     }
 
     public void listSelections() {
+        if(currentSelections.size() == 0){
+            return;
+        }
+
         System.out.println("Current Selections:");
         for(int i = 0; i < currentSelections.size(); i++) {
             Item selection = currentSelections.get(i);
