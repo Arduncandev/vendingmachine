@@ -8,7 +8,7 @@ public class Main {
         addDummyData(vendingMachine);
 
         Scanner sc = new Scanner(System.in);
-        int choice = 99;
+        int choice = 0;
 
         do{
 
@@ -31,7 +31,7 @@ public class Main {
             
         }while (choice != 0);
 
-        
+
     } 
 
     public static void addDummyData(Machine vendingMachine){

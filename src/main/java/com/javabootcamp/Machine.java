@@ -57,6 +57,7 @@ public class Machine {
             System.out.println((i+1) + ". " + selection.getName() + " Price: $" + selection.getPrice());
         }
         System.out.println("Total Price: $" + getTotalPrice());
+        System.out.println("Total w/ Tax: $" + applySalesTax(getTotalPrice()));
     }
 
     public void makeSelection(String name){
@@ -83,5 +84,10 @@ public class Machine {
             total += select.getPrice();
         }
         return total;
+    }
+
+    public double applySalesTax(double total) {
+        double taxRate = .11;
+        return total + (total*taxRate);
     }
 }
