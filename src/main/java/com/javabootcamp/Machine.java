@@ -19,6 +19,7 @@ public class Machine {
     }
 
     public void removeItem(String name){
+
         if(!inventory.containsKey(name)){
             System.out.println("Item not found");
         } else if(inventory.get(name).getAmount() <= 0){
@@ -26,12 +27,18 @@ public class Machine {
         } else {
             inventory.get(name).decAmount();
         }
+
+        if(inventory.get(name).getAmount() == 0){
+            inventory.remove(name);
+        }
     }
 
     public void printStock(){
         int count = 1;
         for (Map.Entry<String, Item> entry : inventory.entrySet()) {
-
+            // if(entry.getValue().getAmount() == 0) {
+            //     removeItem(entry.getValue().getName());
+            // }
             System.out.println(count + ". " + entry.getKey() + " Price: $" + entry.getValue().getPrice() + " Stock: " + entry.getValue().getAmount());
             count++;
             
@@ -48,8 +55,9 @@ public class Machine {
     }
 
     public void makeSelection(String name){
-        inventory.get(name).decAmount();
+
         currentSelections.add(inventory.get(name));
+        removeItem(name);
     }
 
     public String[] getOptions() {

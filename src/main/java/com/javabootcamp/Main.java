@@ -23,18 +23,16 @@ public class Main {
 
             vendingMachine.printStock();
             String[] options = vendingMachine.getOptions();
+            vendingMachine.listSelections();
             System.out.println("Please select the number of the item you would like to purchase: ");
             System.out.println("To finalize purchase, please press 0.");
             choice = sc.nextInt();
 
-            vendingMachine.makeSelection(options[choice]);
-
-            vendingMachine.listSelections();
-
-
+            vendingMachine.makeSelection(options[choice -1]);
 
 
             finished = true;
+            
         }while (choice != 0);
     } 
 
