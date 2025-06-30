@@ -24,7 +24,7 @@ public class Main {
             if(choice > options.length || choice < 0){
                 System.out.println("Invalid choice, please try again.");
             } else {
-                if(options.length > 0) {
+                if(options.length > 0 && choice != 0) {
                     vendingMachine.makeSelection(options[choice - 1]);   
                 }
             }
