@@ -42,4 +42,16 @@ public class Machine {
         inventory.get(name).decAmount();
         currentSelections.add(inventory.get(name));
     }
+
+    public String[] getOptions() {
+        String[] options = new String[inventory.size()];
+        
+        int index = 0;
+        for (Map.Entry<String, Item> entry : inventory.entrySet()) {
+            options[index] = entry.getKey();
+            index++;
+            
+        }
+        return options;
+    }
 }
