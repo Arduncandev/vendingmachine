@@ -1,10 +1,13 @@
 package com.javabootcamp;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Machine {
     Map<String, Item> inventory = new HashMap<>();
+    List<Item> currentSelections = new ArrayList<>();
 
 
     public void addItem(String name, double price) {
@@ -37,5 +40,6 @@ public class Machine {
 
     public void makeSelection(String name){
         inventory.get(name).decAmount();
+        currentSelections.add(inventory.get(name));
     }
 }
